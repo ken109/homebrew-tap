@@ -1,27 +1,26 @@
 class Sennit < Formula
-  desc "Dotfiles manager that keeps symlink semantics, and adds templating and drift detection"
+  desc "Dotfiles manager with symlink semantics, templating, and drift detection"
   homepage "https://github.com/ken109/sennit"
-  version "0.1.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/ken109/sennit/releases/download/v#{version}/sennit-aarch64-apple-darwin.tar.gz"
+      url "https://github.com/ken109/sennit/releases/download/v0.1.0/sennit-aarch64-apple-darwin.tar.gz"
       sha256 "cb6f0497720b10dbf1f8e7ccf05bd22069eef9cdb682874df1098e84ddde759c"
     end
     on_intel do
-      url "https://github.com/ken109/sennit/releases/download/v#{version}/sennit-x86_64-apple-darwin.tar.gz"
+      url "https://github.com/ken109/sennit/releases/download/v0.1.0/sennit-x86_64-apple-darwin.tar.gz"
       sha256 "0c848964ca8a05172e48cf4e42cd18ca54a9aa38d4c8d2bc35dc1161d705a1ea"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ken109/sennit/releases/download/v#{version}/sennit-aarch64-unknown-linux-gnu.tar.gz"
+      url "https://github.com/ken109/sennit/releases/download/v0.1.0/sennit-aarch64-unknown-linux-gnu.tar.gz"
       sha256 "4d7b962820fd3fc696c0598a1d2b26608c1c78ed5b3ce1829084d74ef8c0b246"
     end
     on_intel do
-      url "https://github.com/ken109/sennit/releases/download/v#{version}/sennit-x86_64-unknown-linux-gnu.tar.gz"
+      url "https://github.com/ken109/sennit/releases/download/v0.1.0/sennit-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "5e64643f6e81e0826b94907714ac9faa5090959174316fb4ada45e29ea0a378a"
     end
   end
