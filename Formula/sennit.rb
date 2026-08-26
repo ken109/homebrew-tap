@@ -5,23 +5,23 @@ class Sennit < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/ken109/sennit/releases/download/v0.11.0/sennit-aarch64-apple-darwin.tar.gz"
-      sha256 "eb5b97f51cb0cf96ee34ff5e63ca10fb2a674f80982747065ad231b3d880206d"
+      url "https://github.com/ken109/sennit/releases/download/v0.11.1/sennit-aarch64-apple-darwin.tar.gz"
+      sha256 "810d00bc1bfff5ea23247ad4859b4f275a175f1cc94980b9d3581aafcaeec6ff"
     end
     on_intel do
-      url "https://github.com/ken109/sennit/releases/download/v0.11.0/sennit-x86_64-apple-darwin.tar.gz"
-      sha256 "0b1028ef12edb02410e5e22b6a752d8becbb434f001443e8879b4f0eceaec764"
+      url "https://github.com/ken109/sennit/releases/download/v0.11.1/sennit-x86_64-apple-darwin.tar.gz"
+      sha256 "49a946f8d6e960b919b791078fc89871e73a41d65df14e95efec2c4c48cffeb3"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ken109/sennit/releases/download/v0.11.0/sennit-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "3edc3a11cd7858bee2901abafb0020d4bb089d87ecbac1fda7e2d1af5d2d4ca0"
+      url "https://github.com/ken109/sennit/releases/download/v0.11.1/sennit-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "93056f3ebcf0f902fd63517ddc236e03efd5c6dad9f98e0be5bd2a86c4058aaf"
     end
     on_intel do
-      url "https://github.com/ken109/sennit/releases/download/v0.11.0/sennit-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "caf12b08035cb26db0f3495ace5c60c5c6df30d1886bd13260b09458b407d17a"
+      url "https://github.com/ken109/sennit/releases/download/v0.11.1/sennit-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8f4e7cc96e9444278c6fb7cceb8286c2bc23d20db0a32a849a9be6bcb495c837"
     end
   end
 
