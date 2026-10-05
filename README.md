@@ -16,6 +16,12 @@ brew install ken109/tap/r2-lfs
 
 ## Releasing a new version
 
+New releases of sennit and r2-lfs are picked up automatically: `.github/workflows/bump.yml`
+runs every 6 hours (and on demand), compares each formula with the latest GitHub Release
+(sennit) or npm `latest` (r2-lfs), and pushes a `bump(<name>): <version>` commit when it is
+newer. If the release assets are not up yet, the run fails and the next one retries.
+Run it now with `gh workflow run bump.yml`. The manual steps below still work.
+
 ```sh
 ./bump.sh 0.3.2      # sennit: fetches the checksums and rewrites the formula
 git commit -am "bump(sennit): 0.3.2"

@@ -1,0 +1,38 @@
+name: Bump formulae
+
+# sennit と r2-lfs の新しいリリースを見つけて formula を更新する。
+# 各リポジトリから push で知らせる形にすると、tap へ書ける秘密を持たせることになる。
+# ここから見に行く形なら、秘密は要らない。
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bump
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Bump formulae
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./autobump.sh
+
+      # bump が片方だけ失敗しても、成功した分は push する
+      - name: Push
+        if: ${{ !cancelled() }}
+        run: |
+          if [ "$(git rev-list --count '@{u}..HEAD')" -gt 0 ]; then
+            git push
+          else
+            echo "nothing to push"
+          fi
