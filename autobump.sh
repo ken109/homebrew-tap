@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# 各ツールの最新リリースを見て、formula より新しければ bump.sh / bump-r2-lfs.sh で
-# 書き換えて 1 つにつき 1 コミットする。push はしない(workflow 側が行う)。
+# 各ツールの最新リリースを見て、formula より新しければ bump.sh / bump-r2-lfs.sh /
+# bump-linear.sh で書き換えて 1 つにつき 1 コミットする。push はしない(workflow 側が行う)。
 #
 # 手元で試すときは、クローンした作業ツリーで流す。tap のディレクトリ
 # (/opt/homebrew/Library/Taps/...)では流さないこと(bump.sh と同じ理由)。
@@ -56,7 +56,31 @@ bump_r2_lfs() {
     ./bump-r2-lfs.sh "$latest" && commit_bump r2-lfs "$latest"
 }
 
+# --- linear: GitHub Release(draft・prerelease を除く最新) ---
+# Formula/linear.rb が無い最初の回は current が空になり、そのまま新規作成される。
+bump_linear() {
+    local latest current err
+    err="$(mktemp)"
+    if ! latest="$(gh release view --repo ken109/linear --json tagName --jq .tagName 2>"$err")"; then
+        echo "linear: release not visible (is ken109/linear public yet? does it have a release?)" >&2
+        sed 's/^/  gh: /' "$err" >&2
+        rm -f "$err"
+        return 1
+    fi
+    rm -f "$err"
+    latest="${latest#v}"
+    valid_version "$latest" || { echo "linear: unexpected version '$latest'" >&2; return 1; }
+    current=""
+    if [ -f Formula/linear.rb ]; then
+        current="$(sed -n 's#.*/download/v\([0-9][0-9.]*\)/.*#\1#p' Formula/linear.rb | head -1)"
+    fi
+    echo "linear: formula=${current:-(none)} latest=$latest"
+    [ -z "$current" ] || is_newer "$latest" "$current" || return 0
+    ./bump-linear.sh "$latest" && commit_bump linear "$latest"
+}
+
 bump_sennit || { echo "sennit: bump failed" >&2; status=1; }
 bump_r2_lfs || { echo "r2-lfs: bump failed" >&2; status=1; }
+bump_linear || { echo "linear: bump failed" >&2; status=1; }
 
 exit "$status"
