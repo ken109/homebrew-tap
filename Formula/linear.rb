@@ -5,19 +5,19 @@ class Linear < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/ken109/linear/releases/download/v0.2.0/linear-0.2.0-aarch64-apple-darwin.tar.gz"
-      sha256 "2fedaa4a3dfacc88a8de0b9c9a5d57d2104124286701a4e0e2ae5a350ee6231f"
+      url "https://github.com/ken109/linear/releases/download/v0.3.0/linear-0.3.0-aarch64-apple-darwin.tar.gz"
+      sha256 "de7bf89304fd1dbe67c3ab77850c68fcb11c3314a5c975884e3371c571a3046c"
     end
     on_intel do
-      url "https://github.com/ken109/linear/releases/download/v0.2.0/linear-0.2.0-x86_64-apple-darwin.tar.gz"
-      sha256 "fa4121efb442bd886e3700682b85f9d6b7b25030ab2dc95b2b58cff9890dea29"
+      url "https://github.com/ken109/linear/releases/download/v0.3.0/linear-0.3.0-x86_64-apple-darwin.tar.gz"
+      sha256 "eb3887ced73e325147824aabe1e5690d342f07a2c004c10a7854f986597bf564"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/ken109/linear/releases/download/v0.2.0/linear-0.2.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "ee09942b7657d1ff65f675ca34c4ac3ffcfc79c8fb3fe558d3dd2d8a7a339941"
+      url "https://github.com/ken109/linear/releases/download/v0.3.0/linear-0.3.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "de22ddb1c8fb495e7ce5eea24cc89ef1ea4310650da08e9876ba788fed7487d0"
     end
   end
 
