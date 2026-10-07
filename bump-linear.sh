@@ -78,6 +78,7 @@ class Linear < Formula
 
   def install
     bin.install "linear"
+    generate_completions_from_executable(bin/"linear", "completions", shells: [:bash, :zsh, :fish])
   end
 
   test do
