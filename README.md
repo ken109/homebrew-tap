@@ -51,4 +51,4 @@ brew update && brew upgrade linear
 **Do not edit the formula inside `/opt/homebrew/Library/Taps/ken109/homebrew-tap`.**
 That directory is a git clone Homebrew maintains; a local edit there makes the next
 `brew update` fail with a merge conflict and leaves the tap unusable until it is reset
-with `git reset --hard origin/master`. Always edit this repository and push.
+with `git reset --hard origin/main`. Always edit this repository and push.
