@@ -2,11 +2,11 @@ name: Bump formulae
 
 # sennit と r2-lfs の新しいリリースを見つけて formula を更新する。
 # 各リポジトリから push で知らせる形にすると、tap へ書ける秘密を持たせることになる。
-# ここから見に行く形なら、秘密は要らない。
+# ここから見に行く形なら、秘密は要らない。毎時見に行くので、リリースから 1 時間以内に揃う。
 
 on:
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
